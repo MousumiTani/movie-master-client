@@ -115,20 +115,20 @@ const MyCollection = () => {
               collection?
             </p>
             <div className="flex justify-end gap-3">
-              <button
+              <Button
                 onClick={closeModal}
-                className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400"
+                variant="secondary"
                 disabled={deleting}
               >
                 Cancel
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={handleDelete}
-                className="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700"
+                variant="danger"
                 disabled={deleting}
               >
                 {deleting ? "Deleting..." : "Delete"}
-              </button>
+              </Button>
             </div>
           </div>
         </div>
