@@ -112,7 +112,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center p-2 border-t border-gray-700 text-sm text-gray-500 mt-6">
-        © {new Date().getFullYear()} MovieDB. All rights reserved.
+        © {new Date().getFullYear()} MovieMaster. All rights reserved.
       </div>
     </footer>
   );

@@ -10,9 +10,9 @@ const About = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h3 className="text-2xl font-semibold text-white text-center p-4">
+        <h1 className="text-2xl font-bold text-white text-center p-4">
           About MovieMaster
-        </h3>
+        </h1>
         <p className="text-gray-300 leading-7">
           MovieMaster is your personal movie hub where you can explore, add,
           manage, and track your favorite movies. Powered by MERN stack, this

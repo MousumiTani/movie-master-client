@@ -12,6 +12,8 @@ import UpdateMovie from "../pages/UpdateMovie";
 import WatchList from "../pages/WatchList"; // create this page
 import Recent from "../components/Recent";
 import Profile from "../pages/Profile";
+import NotFound from "../pages/NotFound";
+import SimpleLayout from "../layouts/SimpleLayout";
 
 const Router = createBrowserRouter([
   {
@@ -77,6 +79,12 @@ const Router = createBrowserRouter([
             <Profile />
           </PrivateRoute>
         ),
+      },
+
+      {
+        path: "*",
+        element: <SimpleLayout />,
+        children: [{ path: "*", element: <NotFound /> }],
       },
     ],
   },

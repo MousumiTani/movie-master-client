@@ -39,9 +39,9 @@ const Recent = () => {
 
   return (
     <div className="bg-gradient-to-r from-indigo-900  to-teal-800 p-6">
-      <h3 className="text-2xl font-semibold text-white text-center p-8">
+      <h1 className="text-2xl font-bold text-white text-center p-8">
         Recently Added Movies
-      </h3>
+      </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {movies.map((movie) => (

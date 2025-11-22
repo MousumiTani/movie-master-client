@@ -45,11 +45,15 @@ const Watchlist = () => {
   if (loading) return <Loader />;
 
   if (movies.length === 0)
-    return <p className="text-center mt-10">Your watchlist is empty.</p>;
+    return (
+      <h1 className="text-2xl font-bold my-6 text-center">
+        Your WatchList is Empty
+      </h1>
+    );
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">My Watchlist</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">My Watchlist</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {movies.map((movie) => (
           <div
@@ -62,7 +66,9 @@ const Watchlist = () => {
               className="w-full h-48 object-cover"
             />
             <div className="p-2 flex justify-between items-center">
-              <h2 className="text-sm font-semibold truncate">{movie.title}</h2>
+              <h2 className="text-sm font-semibold text-purple-600">
+                {movie.title}
+              </h2>
               <button
                 onClick={() => handleRemove(movie._id)}
                 className="text-red-600 hover:text-red-800"

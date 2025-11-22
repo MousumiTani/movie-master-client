@@ -37,70 +37,100 @@ const Register = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-gray-300 m-6 p-6 rounded">
-      <h2 className="text-2xl font-bold mb-4">Register</h2>
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-          className="w-full p-2 border rounded"
-          required
-        />
-        <input
-          value={photoURL}
-          onChange={(e) => setPhotoURL(e.target.value)}
-          placeholder="Photo URL"
-          className="w-full p-2 border rounded"
-        />
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Email"
-          className="w-full p-2 border rounded"
-          required
-        />
-        <div className="relative">
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type={showPass ? "text" : "password"}
-            placeholder="Password"
-            className="w-full p-2 border rounded pr-10"
-            required
-          />
-          <button
-            type="button"
-            onClick={() => setShowPass(!showPass)}
-            className="absolute right-3 top-3 text-gray-600"
-          >
-            {showPass ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
-          </button>
-        </div>
-
-        <Button type="submit" variant="secondary" size="lg" className="w-full">
-          Register
-        </Button>
-      </form>
-      <div className="mt-3">
-        <Button
-          onClick={() => {
-            googleLogin();
-          }}
-          className="w-full"
-          variant="secondary"
-          size="lg"
+    <div className="h-[90vh] flex">
+      {/* LEFT VIDEO/IMAGE SECTION */}
+      <div className="hidden md:flex w-1/2 relative bg-gradient-to-br from-blue-700/70 to-purple-500/60">
+        <video
+          autoPlay
+          loop
+          muted
+          className="w-full h-full object-cover mix-blend-overlay"
         >
-          Sign up with Google
-        </Button>
+          <source src="/videos/movie2.mp4" type="video/mp4" />
+        </video>
+
+        <div className="absolute bottom-10 left-10 text-white">
+          <h1 className="text-4xl font-bold drop-shadow-lg">Join Us!</h1>
+          <p className="mt-3 text-lg opacity-90">
+            Create an account and start your journey.
+          </p>
+        </div>
       </div>
-      <p className="mt-3">
-        Already have an account?{" "}
-        <Link to="/login" className="text-blue-600">
-          Login
-        </Link>
-      </p>
+
+      {/* RIGHT FORM SECTION */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-white">
+        <div className="w-full max-w-md">
+          <h2 className="text-3xl font-semibold mb-4 text-gray-800">
+            Register
+          </h2>
+
+          <form onSubmit={handleSubmit} className="space-y-3 mb-4">
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none placeholder-gray-500"
+              required
+            />
+            <input
+              value={photoURL}
+              onChange={(e) => setPhotoURL(e.target.value)}
+              placeholder="Photo URL"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none placeholder-gray-500"
+            />
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Email"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none placeholder-gray-500"
+              required
+            />
+            <div className="relative">
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type={showPass ? "text" : "password"}
+                placeholder="Password"
+                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none pr-10 placeholder-gray-500"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPass(!showPass)}
+                className="absolute right-3 top-3 text-gray-600"
+              >
+                {showPass ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+              </button>
+            </div>
+
+            <Button
+              type="submit"
+              variant="secondary"
+              size="lg"
+              className="w-full"
+            >
+              Register
+            </Button>
+          </form>
+
+          <Button
+            onClick={() => googleLogin()}
+            variant="secondary"
+            size="lg"
+            className="w-full"
+          >
+            Sign up with Google
+          </Button>
+
+          <p className="text-center text-sm text-gray-600 mt-4">
+            Already have an account?
+            <Link to="/login" className="text-purple-600 font-medium ml-1">
+              Login
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

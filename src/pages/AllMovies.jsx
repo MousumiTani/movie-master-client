@@ -59,8 +59,8 @@ const AllMovies = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-gray-300">
-      <h1 className="text-3xl font-bold mb-6 text-center">All Movies</h1>
+    <div className="max-w-7xl mx-auto p-6 ">
+      <h1 className="text-2xl font-bold mb-6 text-center">All Movies</h1>
 
       {/* Filters */}
       <div className="flex flex-wrap gap-4 mb-6 items-center">

@@ -43,9 +43,9 @@ const TopRated = () => {
   return (
     <section className="bg-gradient-to-r from-purple-900 via-black to-gray-900 flex flex-col md:flex-row gap-6 p-6 rounded shadow">
       <div className="w-full md:w-1/2 flex flex-col gap-6 mt-6">
-        <h3 className="text-2xl font-semibold text-white text-center">
+        <h1 className="text-2xl font-bold text-white text-center">
           Statistics
-        </h3>
+        </h1>
 
         <div className="flex flex-col gap-4">
           <div className="bg-gray-700 rounded-xl shadow-xl p-6 flex flex-col items-center hover:scale-105 transition">
@@ -62,9 +62,9 @@ const TopRated = () => {
         </div>
 
         <div className="p-12">
-          <h3 className="text-2xl font-semibold text-white mb-3 text-center">
+          <h1 className="text-2xl font-bold text-white mb-3 text-center">
             Popular Genres
-          </h3>
+          </h1>
           <div className="flex flex-col gap-4">
             {genres.map((genre, idx) => (
               <span
@@ -80,9 +80,9 @@ const TopRated = () => {
 
       {/* Top Rated Movies */}
       <div className="w-full md:w-1/2 flex flex-col gap-6 mt-6">
-        <h3 className="text-2xl font-semibold text-white text-center">
+        <h1 className="text-2xl font-bold text-white text-center">
           Top Rated Movies
-        </h3>
+        </h1>
 
         <div className="grid grid-cols-2 gap-4">
           {topRated.map((movie) => (

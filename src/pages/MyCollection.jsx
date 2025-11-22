@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import AuthContext from "../context/AuthContext";
 import Loader from "../components/Loader";
 import { toast } from "react-toastify";
+import Button from "../components/Button";
 
 const MyCollection = () => {
   const { user } = useContext(AuthContext);
@@ -30,13 +31,10 @@ const MyCollection = () => {
     if (user) fetchMovies();
   }, [user]);
 
-  // Open confirmation modal
   const openModal = (movie) => {
     setSelectedMovie(movie);
     setModalOpen(true);
   };
-
-  // Close modal
   const closeModal = () => {
     setSelectedMovie(null);
     setModalOpen(false);
@@ -67,47 +65,52 @@ const MyCollection = () => {
   if (loading) return <Loader />;
 
   if (movies.length === 0)
-    return <p className="text-center mt-10">Your collection is empty.</p>;
+    return (
+      <h1 className="text-2xl font-bold my-6 text-center">
+        Your collection is empty.
+      </h1>
+    );
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">My Collection</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="max-w-xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-6 text-center">My Collection</h1>
+
+      <div className="flex flex-col gap-6">
         {movies.map((movie) => (
           <div
             key={movie._id}
-            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition"
+            className="flex flex-col md:flex-row bg-gray-300 shadow-md rounded-lg overflow-hidden hover:shadow-xl transition transform hover:scale-[1.01]"
           >
+            {/* Movie Poster */}
             <img
               src={movie.posterUrl}
               alt={movie.title}
-              className="w-full h-64 object-cover"
+              className="w-full md:w-1/4 h-64 md:h-auto object-cover"
             />
-            <div className="p-4 flex flex-col gap-2">
-              <h2 className="text-xl font-semibold">{movie.title}</h2>
-              <p>⭐ Rating: {movie.rating}</p>
-              <p>🎭 Genre: {movie.genre}</p>
-              <p>📅 Release Year: {movie.releaseYear}</p>
 
-              <div className="mt-2 flex gap-2">
+            {/* Movie Details */}
+            <div className="p-4 flex-1 flex flex-col justify-between text-red-800">
+              <div className="text-gray-600">
+                <h2 className="text-2xl font-semibold">{movie.title}</h2>
+                <p>⭐ Rating: {movie.rating}</p>
+                <p>🎭 Genre: {movie.genre}</p>
+                <p>📅 Release Year: {movie.releaseYear}</p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="mt-4 flex gap-3">
                 <Link to={`/movies/update/${movie._id}`}>
-                  <button className="px-3 py-1 rounded text-white bg-blue-600 hover:bg-blue-700">
-                    Edit
-                  </button>
+                  <Button variant="secondary">Edit</Button>
                 </Link>
-                <button
-                  onClick={() => openModal(movie)}
-                  className="px-3 py-1 rounded text-white bg-red-600 hover:bg-red-700"
-                >
+                <Button variant="danger" onClick={() => openModal(movie)}>
                   Delete
-                </button>
+                </Button>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Subtle Confirmation Modal */}
       {modalOpen && selectedMovie && (
         <div className="fixed inset-0 flex justify-center items-center z-50 pointer-events-none">
           <div className="absolute inset-0 bg-black opacity-30 pointer-events-auto"></div>
