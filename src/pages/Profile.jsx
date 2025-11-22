@@ -11,10 +11,10 @@ const Profile = () => {
   if (!user) return <div className="text-center py-8">No user found.</div>;
 
   return (
-    <div className="max-w-2xl mx-auto bg-gray-300 p-6 m-8 rounded">
+    <div className="max-w-2xl mx-auto bg-gray-300 dark:bg-gray-700 p-6 m-8 rounded">
       <img
-        src={user.photoURL || "https://i.ibb.co/4pDNDk1/default-avatar.png"}
-        alt="User Avatar"
+        src={user.photoURL || ""}
+        alt=""
         className="w-24 h-24 rounded-full mb-4"
       />
       <p className="mb-2">

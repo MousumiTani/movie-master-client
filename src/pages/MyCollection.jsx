@@ -110,9 +110,6 @@ const MyCollection = () => {
         <div className="fixed inset-0 flex justify-center items-center z-50 pointer-events-none">
           <div className="absolute inset-0 bg-black opacity-30 pointer-events-auto"></div>
           <div className="bg-white rounded-lg p-6 max-w-sm w-full z-50 pointer-events-auto shadow-lg">
-            <h2 className="text-xl font-bold mb-4">
-              Delete "{selectedMovie.title}"?
-            </h2>
             <p className="mb-4 text-gray-700">
               Are you sure you want to permanently delete this movie from your
               collection?

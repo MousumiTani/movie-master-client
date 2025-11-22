@@ -9,6 +9,9 @@ const Watchlist = () => {
   const { user } = useContext(AuthContext);
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     const fetchWatchlist = async () => {
@@ -28,17 +31,33 @@ const Watchlist = () => {
     if (user) fetchWatchlist();
   }, [user]);
 
-  const handleRemove = async (movieId) => {
-    try {
-      await axios.patch(`http://localhost:3000/movies/${movieId}/watchlist`, {
-        userEmail: user.email,
-      });
+  const openModal = (movie) => {
+    setSelectedMovie(movie);
+    setModalOpen(true);
+  };
 
-      setMovies((prev) => prev.filter((m) => m._id !== movieId));
+  const closeModal = () => {
+    setSelectedMovie(null);
+    setModalOpen(false);
+  };
+
+  const handleRemove = async () => {
+    if (!selectedMovie) return;
+    setDeleting(true);
+    try {
+      await axios.patch(
+        `http://localhost:3000/movies/${selectedMovie._id}/watchlist`,
+        { userEmail: user.email }
+      );
+
+      setMovies((prev) => prev.filter((m) => m._id !== selectedMovie._id));
       toast.success("Removed from watchlist!");
+      closeModal();
     } catch (err) {
       console.error(err);
       toast.error("Failed to remove movie.");
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -70,7 +89,7 @@ const Watchlist = () => {
                 {movie.title}
               </h2>
               <button
-                onClick={() => handleRemove(movie._id)}
+                onClick={() => openModal(movie)}
                 className="text-red-600 hover:text-red-800"
                 title="Remove"
               >
@@ -80,6 +99,33 @@ const Watchlist = () => {
           </div>
         ))}
       </div>
+
+      {modalOpen && selectedMovie && (
+        <div className="fixed inset-0 flex justify-center items-center z-50 pointer-events-none">
+          <div className="absolute inset-0 bg-black opacity-30 pointer-events-auto"></div>
+          <div className="bg-white rounded-lg p-6 max-w-sm w-full z-50 pointer-events-auto shadow-lg">
+            <p className="mb-4 text-gray-700">
+              Are you sure you want to remove this movie from your watchlist?
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={closeModal}
+                className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400"
+                disabled={deleting}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleRemove}
+                className="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700"
+                disabled={deleting}
+              >
+                {deleting ? "Removing..." : "Remove"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
