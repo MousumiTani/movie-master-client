@@ -15,6 +15,7 @@ const MyCollection = () => {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
+    document.title = "My Collection";
     const fetchMovies = async () => {
       try {
         const res = await axios.get("http://localhost:3000/movies");
