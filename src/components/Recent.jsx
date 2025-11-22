@@ -10,17 +10,14 @@ const Recent = () => {
   useEffect(() => {
     const fetchRecentMovies = async () => {
       try {
-        // Fetch all movies
         const res = await axios.get("http://localhost:3000/movies");
-
-        // Sort by newest first using MongoDB _id timestamp
         const sorted = res.data
           .sort(
             (a, b) =>
               parseInt(b._id.toString().substring(0, 8), 16) -
               parseInt(a._id.toString().substring(0, 8), 16)
           )
-          .slice(0, 6); // get latest 6 movies
+          .slice(0, 6);
 
         setMovies(sorted);
       } catch (error) {

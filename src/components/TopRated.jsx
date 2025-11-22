@@ -78,8 +78,7 @@ const TopRated = () => {
         </div>
       </div>
 
-      {/* Top Rated Movies */}
-      <div className="w-full md:w-1/2 flex flex-col gap-6 mt-6">
+      <aside className="w-full md:w-1/2 flex flex-col gap-6 mt-6">
         <h1 className="text-2xl font-bold text-white text-center">
           Top Rated Movies
         </h1>
@@ -105,7 +104,7 @@ const TopRated = () => {
             </div>
           ))}
         </div>
-      </div>
+      </aside>
     </section>
   );
 };
