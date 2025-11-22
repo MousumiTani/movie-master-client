@@ -153,7 +153,7 @@ const AddMovie = () => {
           onChange={handleChange}
         />
 
-        <Button type="submit" disabled={submitting} variant="outline">
+        <Button type="submit" disabled={submitting} variant="secondary">
           {submitting ? "Adding..." : "Add Movie"}
         </Button>
       </form>
