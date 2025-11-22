@@ -11,7 +11,7 @@ import BackToTop from "./components/BackToTop";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={Router} /> {/* lowercase 'router' */}
+      <RouterProvider router={Router} />
       <ToastContainer position="top-right" />
       <BackToTop></BackToTop>
     </AuthProvider>

@@ -7,7 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Environment variables (VERY IMPORTANT)
+# Environment variables
 .env
 
 # Dependencies

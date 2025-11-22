@@ -38,7 +38,6 @@ const Register = () => {
 
   return (
     <div className="h-[90vh] flex">
-      {/* LEFT VIDEO/IMAGE SECTION */}
       <div className="hidden md:flex w-1/2 relative bg-gradient-to-br from-blue-700/70 to-purple-500/60">
         <video
           autoPlay
@@ -57,8 +56,7 @@ const Register = () => {
         </div>
       </div>
 
-      {/* RIGHT FORM SECTION */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-white">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-purple-200">
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-semibold mb-4 text-gray-800">
             Register
@@ -69,21 +67,21 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Name"
-              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none placeholder-gray-500"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
               required
             />
             <input
               value={photoURL}
               onChange={(e) => setPhotoURL(e.target.value)}
               placeholder="Photo URL"
-              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none placeholder-gray-500"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
             />
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="Email"
-              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none placeholder-gray-500"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
               required
             />
             <div className="relative">
@@ -92,7 +90,7 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 type={showPass ? "text" : "password"}
                 placeholder="Password"
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none pr-10 placeholder-gray-500"
+                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none pr-10 text-black"
                 required
               />
               <button
