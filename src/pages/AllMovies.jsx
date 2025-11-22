@@ -34,8 +34,9 @@ const AllMovies = () => {
       console.error(err);
     }
   };
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
+    document.title = "MovieMaster | All Movies";
     fetchMovies();
   }, [genresFilter, minRating, maxRating]);
 
@@ -62,7 +63,6 @@ const AllMovies = () => {
     <div className="max-w-7xl mx-auto p-6 ">
       <h1 className="text-2xl font-bold mb-6 text-center">All Movies</h1>
 
-      {/* Filters */}
       <div className="flex flex-wrap gap-4 mb-6 items-center">
         <div>
           <label className="font-semibold mr-2">Genres:</label>
@@ -115,7 +115,7 @@ const AllMovies = () => {
           return (
             <div
               key={movie._id}
-              className="bg-gray-300 shadow-lg rounded-lg overflow-hidden transform transition duration-300 ease-out hover:-translate-y-2"
+              className="bg-gray-300 dark:bg-gray-600 shadow-lg rounded-lg overflow-hidden transform transition duration-300 ease-out hover:-translate-y-2"
             >
               <img
                 src={movie.posterUrl}
@@ -125,7 +125,7 @@ const AllMovies = () => {
 
               <div className="p-4">
                 <div className="flex justify-between items-center mb-2">
-                  <h4 className="text-red-800 text-lg font-semibold">
+                  <h4 className="text-red-600 dark:text-white text-lg font-semibold">
                     {movie.title}
                   </h4>
 
@@ -148,7 +148,7 @@ const AllMovies = () => {
                   )}
                 </div>
 
-                <div className="text-gray-600 my-2">
+                <div className="text-gray-600 dark:text-white my-2">
                   <p>⭐ Rating: {movie.rating}</p>
                   <p>🎭 Genre: {movie.genre}</p>
                   <p>📅 Release Year: {movie.releaseYear}</p>

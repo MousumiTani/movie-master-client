@@ -14,7 +14,6 @@ const HomeLayout = () => {
   return (
     <div className="min-h-screen ">
       <Hero />
-
       <TopRated></TopRated>
       <Recent></Recent>
       <About></About>

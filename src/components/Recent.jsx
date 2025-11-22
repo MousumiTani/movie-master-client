@@ -44,7 +44,7 @@ const Recent = () => {
         {movies.map((movie) => (
           <div
             key={movie._id}
-            className="bg-gray-300 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2"
+            className="bg-gray-300 dark:bg-gray-600 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2"
           >
             <img
               src={movie.posterUrl}
@@ -52,17 +52,14 @@ const Recent = () => {
               className="w-full h-56 object-cover"
             />
             <div className="p-4">
-              <h4 className=" text-red-800 text-lg font-semibold">
+              <h4 className=" text-red-800 dark:text-white text-lg font-semibold">
                 {movie.title}
               </h4>
-              <p className="text-sm text-gray-600">
-                ⭐ {movie.rating || "N/A"} • {movie.genre || "Unknown"}
+              <p className="text-sm text-gray-600 dark:text-white">
+                ⭐ {movie.rating} • {movie.genre}
               </p>
-              <p className="text-xs text-gray-500 my-2">
-                Added By:{" "}
-                <span className="font-semibold">
-                  {movie.addedBy || "Unknown"}
-                </span>
+              <p className="text-xs text-gray-500 dark:text-white my-2">
+                Added By: <span className="font-semibold">{movie.addedBy}</span>
               </p>
               <Link to={`/movie-details/${movie._id}`}>
                 <Button variant="primary" size="md" className="w-full">

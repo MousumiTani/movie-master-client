@@ -9,7 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyCollection from "../pages/MyCollection";
 import AddMovie from "../pages/AddMovie";
 import UpdateMovie from "../pages/UpdateMovie";
-import WatchList from "../pages/WatchList"; // create this page
+import WatchList from "../pages/WatchList";
 import Recent from "../components/Recent";
 import Profile from "../pages/Profile";
 import NotFound from "../pages/NotFound";
@@ -23,7 +23,6 @@ const Router = createBrowserRouter([
       { path: "/", element: <HomeLayout /> },
       { path: "/all-movies", element: <AllMovies /> },
 
-      // Protected routes
       {
         path: "/my-collection",
         element: (
@@ -57,7 +56,6 @@ const Router = createBrowserRouter([
         ),
       },
 
-      // Public route with param
       {
         path: "/movie-details/:id",
         element: <MovieDetails />,
@@ -68,7 +66,6 @@ const Router = createBrowserRouter([
         element: <Recent />,
       },
 
-      // Auth routes
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
 
