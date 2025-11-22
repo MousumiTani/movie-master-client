@@ -82,14 +82,11 @@ const MyCollection = () => {
             key={movie._id}
             className="flex flex-col md:flex-row bg-gray-300 shadow-md rounded-lg overflow-hidden hover:shadow-xl transition transform hover:scale-[1.01]"
           >
-            {/* Movie Poster */}
             <img
               src={movie.posterUrl}
               alt={movie.title}
               className="w-full md:w-1/4 h-64 md:h-auto object-cover"
             />
-
-            {/* Movie Details */}
             <div className="p-4 flex-1 flex flex-col justify-between text-red-800">
               <div className="text-gray-600">
                 <h2 className="text-2xl font-semibold">{movie.title}</h2>
@@ -97,8 +94,6 @@ const MyCollection = () => {
                 <p>🎭 Genre: {movie.genre}</p>
                 <p>📅 Release Year: {movie.releaseYear}</p>
               </div>
-
-              {/* Action Buttons */}
               <div className="mt-4 flex gap-3">
                 <Link to={`/movies/update/${movie._id}`}>
                   <Button variant="secondary">Edit</Button>

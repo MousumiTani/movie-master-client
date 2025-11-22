@@ -56,7 +56,7 @@ const Register = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-purple-200">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-purple-200 dark:bg-gray-700">
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-semibold mb-4 text-gray-800">
             Register
@@ -67,21 +67,21 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Name"
-              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none "
               required
             />
             <input
               value={photoURL}
               onChange={(e) => setPhotoURL(e.target.value)}
               placeholder="Photo URL"
-              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none "
             />
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="Email"
-              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none "
               required
             />
             <div className="relative">
@@ -90,7 +90,7 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 type={showPass ? "text" : "password"}
                 placeholder="Password"
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none pr-10 text-black"
+                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none pr-10"
                 required
               />
               <button
@@ -121,7 +121,7 @@ const Register = () => {
             Sign up with Google
           </Button>
 
-          <p className="text-center text-sm text-gray-600 mt-4">
+          <p className="text-center text-sm text-gray-400 mt-4">
             Already have an account?
             <Link to="/login" className="text-purple-600 font-medium ml-1">
               Login

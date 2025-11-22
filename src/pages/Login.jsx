@@ -60,7 +60,7 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-purple-200">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-purple-200 dark:bg-gray-700">
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-semibold mb-4 text-gray-800">Login</h2>
 
@@ -70,7 +70,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               required
-              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none"
               placeholder="Enter your email"
             />
             <div className="relative">
@@ -79,7 +79,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 type={showPass ? "text" : "password"}
                 required
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
+                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none"
                 placeholder="Enter your password"
               />
               <button
@@ -110,7 +110,7 @@ const Login = () => {
             Sign in with Google
           </Button>
 
-          <p className="text-center text-sm text-gray-600 mt-4">
+          <p className="text-center text-sm text-gray-400 mt-4">
             No account?
             <Link to="/register" className="text-purple-600 font-medium ml-1">
               Register
