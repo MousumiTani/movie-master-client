@@ -58,34 +58,28 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-white">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-purple-200">
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-semibold mb-4 text-gray-800">Login</h2>
 
-          <form onSubmit={handleSubmit} className="space-y-3 mb-4">
-            <div>
-              <label className="block text-gray-600 mb-1">Email</label>
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                required
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none"
-                placeholder="Enter your email"
-              />
-            </div>
+          <form onSubmit={handleSubmit} className="space-y-6 mb-4">
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
+              placeholder="Enter your email"
+            />
 
-            <div>
-              <label className="block text-gray-600 mb-1">Password</label>
-              <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                type="password"
-                required
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none"
-                placeholder="Enter your password"
-              />
-            </div>
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 outline-none text-black"
+              placeholder="Enter your password"
+            />
 
             <Button
               type="submit"

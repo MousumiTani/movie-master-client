@@ -1,5 +1,6 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
+import React from "react";
 
 const About = () => {
   return (
@@ -39,7 +40,7 @@ const About = () => {
           playsInline
           className="rounded-lg shadow-lg w-full max-w-md"
           animate={{
-            y: [0, -15, 0], // floating motion
+            y: [0, -15, 0],
           }}
           transition={{
             duration: 4,
