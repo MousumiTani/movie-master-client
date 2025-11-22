@@ -29,8 +29,8 @@ const UpdateMovie = () => {
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
 
-  // Fetch existing movie data
   useEffect(() => {
+    document.title = "MovieMaster |Update";
     const fetchMovie = async () => {
       try {
         const res = await axios.get(`http://localhost:3000/movies/${movieId}`);
@@ -60,20 +60,17 @@ const UpdateMovie = () => {
     fetchMovie();
   }, [movieId, navigate]);
 
-  // Handle form input
   const handleChange = (e) => {
     const { name, value } = e.target;
     setMovieData((prev) => ({ ...prev, [name]: value }));
   };
-
-  // Submit updated movie
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUpdating(true);
     try {
       await axios.put(`http://localhost:3000/movies/update/${movieId}`, {
         ...movieData,
-        userId: user.email, // for ownership check
+        userId: user.email,
       });
 
       toast.success("Movie updated successfully!");

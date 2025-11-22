@@ -15,7 +15,7 @@ const MyCollection = () => {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    document.title = "My Collection";
+    document.title = "MovieMaster |Collection";
     const fetchMovies = async () => {
       try {
         const res = await axios.get("http://localhost:3000/movies");
@@ -41,7 +41,6 @@ const MyCollection = () => {
     setModalOpen(false);
   };
 
-  // Delete movie
   const handleDelete = async () => {
     if (!selectedMovie) return;
     setDeleting(true);
