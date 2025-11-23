@@ -17,7 +17,9 @@ const Watchlist = () => {
   useEffect(() => {
     const fetchWatchlist = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/movies");
+        const res = await axios.get(
+          "https://server-henna-psi.vercel.app/movies"
+        );
         const watchlistMovies = res.data.filter(
           (m) => m.watchlist && m.watchlist.includes(user.email)
         );
@@ -47,8 +49,10 @@ const Watchlist = () => {
     setDeleting(true);
     try {
       await axios.patch(
-        `http://localhost:3000/movies/${selectedMovie._id}/watchlist`,
-        { userEmail: user.email }
+        `https://server-henna-psi.vercel.app/movies/${selectedMovie._id}/watchlist`,
+        {
+          userEmail: user.email,
+        }
       );
 
       setMovies((prev) => prev.filter((m) => m._id !== selectedMovie._id));

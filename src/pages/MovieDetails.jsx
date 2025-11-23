@@ -21,7 +21,9 @@ const MovieDetails = () => {
     document.title = "MovieMaster | Details";
     const fetchMovie = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/movies/${movieId}`);
+        const res = await axios.get(
+          `https://server-henna-psi.vercel.app/movies/${movieId}`
+        );
         setMovie(res.data);
       } catch (err) {
         console.error(err);
@@ -38,7 +40,9 @@ const MovieDetails = () => {
     if (!selectedMovie) return;
     setDeleting(true);
     try {
-      await axios.delete(`http://localhost:3000/movies/${selectedMovie._id}`);
+      await axios.delete(
+        `https://server-henna-psi.vercel.app/movies/${selectedMovie._id}`
+      );
       toast.success("Movie deleted successfully!");
       setModalOpen(false);
       navigate("/my-collection");
@@ -108,7 +112,9 @@ const MovieDetails = () => {
 
             {isOwner && (
               <div className="flex gap-4 mt-3">
-                <Link to={`/movies/update/${movie._id}`}>
+                <Link
+                  to={`https://server-henna-psi.vercel.app/movies/update/${movie._id}`}
+                >
                   <Button variant="secondary">Edit</Button>
                 </Link>
                 <Button onClick={() => openModal(movie)} variant="danger">

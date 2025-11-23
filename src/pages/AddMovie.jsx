@@ -36,7 +36,7 @@ const AddMovie = () => {
 
     setSubmitting(true);
     try {
-      await axios.post("http://localhost:3000/movies/add", {
+      await axios.post("https://server-henna-psi.vercel.app/movies/add", {
         ...form,
         rating: parseFloat(form.rating),
         releaseYear: parseInt(form.releaseYear),
@@ -66,7 +66,7 @@ const AddMovie = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 shadow-2xl m-6 rounded border-2 border-gray-500">
+    <div className="max-w-2xl mx-auto p-6 shadow-2xl m-6 rounded bg-gray-300 dark:bg-gray-900">
       <h1 className="text-2xl font-bold mb-4 text-center">Add Movie</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
@@ -74,6 +74,7 @@ const AddMovie = () => {
           name="title"
           placeholder="Title"
           value={form.title}
+          className="border rounded"
           onChange={handleChange}
           required
         />
@@ -82,6 +83,7 @@ const AddMovie = () => {
           name="genre"
           placeholder="Genre"
           value={form.genre}
+          className="border rounded"
           onChange={handleChange}
           required
         />
@@ -91,6 +93,7 @@ const AddMovie = () => {
           name="rating"
           placeholder="Rating"
           value={form.rating}
+          className="border rounded"
           onChange={handleChange}
           required
         />
@@ -99,6 +102,7 @@ const AddMovie = () => {
           name="posterUrl"
           placeholder="Poster URL"
           value={form.posterUrl}
+          className="border rounded"
           onChange={handleChange}
           required
         />
@@ -107,6 +111,7 @@ const AddMovie = () => {
           name="releaseYear"
           placeholder="Release Year"
           value={form.releaseYear}
+          className="border rounded"
           onChange={handleChange}
           required
         />
@@ -115,6 +120,7 @@ const AddMovie = () => {
           name="director"
           placeholder="Director"
           value={form.director}
+          className="border rounded"
           onChange={handleChange}
         />
         <input
@@ -122,6 +128,7 @@ const AddMovie = () => {
           name="cast"
           placeholder="Cast (comma separated)"
           value={form.cast}
+          className="border rounded"
           onChange={handleChange}
         />
         <input
@@ -129,6 +136,7 @@ const AddMovie = () => {
           name="duration"
           placeholder="Duration (minutes)"
           value={form.duration}
+          className="border rounded"
           onChange={handleChange}
         />
         <textarea
@@ -143,6 +151,7 @@ const AddMovie = () => {
           name="language"
           placeholder="Language"
           value={form.language}
+          className="border rounded"
           onChange={handleChange}
         />
         <input
@@ -150,6 +159,7 @@ const AddMovie = () => {
           name="country"
           placeholder="Country"
           value={form.country}
+          className="border rounded"
           onChange={handleChange}
         />
 

@@ -10,7 +10,9 @@ const Recent = () => {
   useEffect(() => {
     const fetchRecentMovies = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/movies");
+        const res = await axios.get(
+          "https://server-henna-psi.vercel.app/movies"
+        );
         const sorted = res.data
           .sort(
             (a, b) =>

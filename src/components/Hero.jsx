@@ -15,7 +15,9 @@ const Hero = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/movies/featured");
+        const res = await axios.get(
+          "https://server-henna-psi.vercel.app/movies/featured"
+        );
         setMovies(
           res.data.map((m) => ({
             id: m._id,

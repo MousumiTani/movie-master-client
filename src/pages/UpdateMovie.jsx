@@ -30,10 +30,12 @@ const UpdateMovie = () => {
   const [updating, setUpdating] = useState(false);
 
   useEffect(() => {
-    document.title = "MovieMaster |Update";
+    document.title = "MovieMaster | Update";
     const fetchMovie = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/movies/${movieId}`);
+        const res = await axios.get(
+          `https://server-henna-psi.vercel.app/movies/${movieId}`
+        );
         setMovieData({
           title: res.data.title || "",
           genre: res.data.genre || "",
@@ -68,10 +70,13 @@ const UpdateMovie = () => {
     e.preventDefault();
     setUpdating(true);
     try {
-      await axios.put(`http://localhost:3000/movies/update/${movieId}`, {
-        ...movieData,
-        userId: user.email,
-      });
+      await axios.put(
+        `https://server-henna-psi.vercel.app/movies/update/${movieId}`,
+        {
+          ...movieData,
+          userId: user.email,
+        }
+      );
 
       toast.success("Movie updated successfully!");
       navigate("/my-collection");
@@ -86,7 +91,7 @@ const UpdateMovie = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="max-w-xl mx-auto p-6 m-6 shadow-2xl rounded border-2 border-gray-500">
+    <div className="max-w-xl mx-auto p-6 m-6 shadow-2xl rounded bg-gray-300 dark:bg-gray-900">
       <h1 className="text-2xl font-bold mb-6 text-center">Update Movie</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input

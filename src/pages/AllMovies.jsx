@@ -28,7 +28,10 @@ const AllMovies = () => {
       if (minRating) params.minRating = minRating;
       if (maxRating) params.maxRating = maxRating;
 
-      const res = await axios.get("http://localhost:3000/movies", { params });
+      const res = await axios.get(
+        "https://server-henna-psi.vercel.app/movies",
+        { params }
+      );
       setMovies(res.data);
     } catch (err) {
       console.error(err);
@@ -50,9 +53,12 @@ const AllMovies = () => {
     );
 
     try {
-      await axios.patch(`http://localhost:3000/movies/${movieId}/watchlist`, {
-        userEmail: user.email,
-      });
+      await axios.patch(
+        `https://server-henna-psi.vercel.app/movies/${movieId}/watchlist`,
+        {
+          userEmail: user.email,
+        }
+      );
     } catch (err) {
       console.error(err);
       alert("Failed to update watchlist");

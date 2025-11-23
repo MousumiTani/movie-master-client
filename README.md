@@ -1,6 +1,6 @@
 ## MovieMaster: A MERN-based project
 
-## Live URL:
+## Live URL: https://movie-master-client.netlify.app/
 
 ## Theme:
 

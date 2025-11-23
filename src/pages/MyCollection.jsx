@@ -15,10 +15,12 @@ const MyCollection = () => {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    document.title = "MovieMaster |Collection";
+    document.title = "MovieMaster | Collection";
     const fetchMovies = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/movies");
+        const res = await axios.get(
+          "https://server-henna-psi.vercel.app/movies"
+        );
         const userMovies = res.data.filter((m) => m.addedBy === user.email);
         setMovies(userMovies);
       } catch (err) {
@@ -46,10 +48,9 @@ const MyCollection = () => {
     setDeleting(true);
 
     try {
-      await axios.delete(
-        `http://localhost:3000/movies/delete/${selectedMovie._id}`,
-        { data: { userId: user.email } }
-      );
+      await axios.delete(`movies/delete/${selectedMovie._id}`, {
+        data: { userId: user.email },
+      });
 
       setMovies((prev) => prev.filter((m) => m._id !== selectedMovie._id));
       toast.success("Movie deleted successfully!");
