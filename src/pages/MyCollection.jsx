@@ -48,9 +48,12 @@ const MyCollection = () => {
     setDeleting(true);
 
     try {
-      await axios.delete(`movies/delete/${selectedMovie._id}`, {
-        data: { userId: user.email },
-      });
+      await axios.delete(
+        `https://server-henna-psi.vercel.app/movies/delete/${selectedMovie._id}`,
+        {
+          data: { userId: user.email },
+        }
+      );
 
       setMovies((prev) => prev.filter((m) => m._id !== selectedMovie._id));
       toast.success("Movie deleted successfully!");
