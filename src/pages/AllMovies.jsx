@@ -29,7 +29,7 @@ const AllMovies = () => {
       if (maxRating) params.maxRating = maxRating;
 
       const res = await axios.get(
-        "https://server-henna-psi.vercel.app/movies",
+        "https://movie-blond-three.vercel.app/movies",
         { params }
       );
       setMovies(res.data);
@@ -54,7 +54,7 @@ const AllMovies = () => {
 
     try {
       await axios.patch(
-        `https://server-henna-psi.vercel.app/movies/${movieId}/watchlist`,
+        `https://movie-blond-three.vercel.app/movies/${movieId}/watchlist`,
         {
           userEmail: user.email,
         }

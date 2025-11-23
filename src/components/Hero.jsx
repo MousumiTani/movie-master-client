@@ -16,7 +16,7 @@ const Hero = () => {
     const load = async () => {
       try {
         const res = await axios.get(
-          "https://server-henna-psi.vercel.app/movies/featured"
+          "https://movie-blond-three.vercel.app/movies/featured"
         );
         setMovies(
           res.data.map((m) => ({

@@ -36,7 +36,7 @@ const AddMovie = () => {
 
     setSubmitting(true);
     try {
-      await axios.post("https://server-henna-psi.vercel.app/movies/add", {
+      await axios.post("https://movie-blond-three.vercel.app/movies/add", {
         ...form,
         rating: parseFloat(form.rating),
         releaseYear: parseInt(form.releaseYear),

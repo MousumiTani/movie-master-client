@@ -22,7 +22,7 @@ const MovieDetails = () => {
     const fetchMovie = async () => {
       try {
         const res = await axios.get(
-          `https://server-henna-psi.vercel.app/movies/${movieId}`
+          `https://movie-blond-three.vercel.app/movies/${movieId}`
         );
         setMovie(res.data);
       } catch (err) {
@@ -41,14 +41,17 @@ const MovieDetails = () => {
     setDeleting(true);
     try {
       await axios.delete(
-        `https://server-henna-psi.vercel.app/movies/${selectedMovie._id}`
+        `https://movie-blond-three.vercel.app/movies/delete/${selectedMovie._id}`,
+        {
+          data: { userId: user.email },
+        }
       );
       toast.success("Movie deleted successfully!");
       setModalOpen(false);
       navigate("/my-collection");
     } catch (err) {
       console.error(err);
-      toast.error("Failed to delete movie.");
+      toast.error(err.response?.data?.message || "Failed to delete movie.");
     } finally {
       setDeleting(false);
     }
@@ -112,9 +115,7 @@ const MovieDetails = () => {
 
             {isOwner && (
               <div className="flex gap-4 mt-3">
-                <Link
-                  to={`https://server-henna-psi.vercel.app/movies/update/${movie._id}`}
-                >
+                <Link to={`/movies/update/${movie._id}`}>
                   <Button variant="secondary">Edit</Button>
                 </Link>
                 <Button onClick={() => openModal(movie)} variant="danger">

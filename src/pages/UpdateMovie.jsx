@@ -34,7 +34,7 @@ const UpdateMovie = () => {
     const fetchMovie = async () => {
       try {
         const res = await axios.get(
-          `https://server-henna-psi.vercel.app/movies/${movieId}`
+          `https://movie-blond-three.vercel.app/movies/${movieId}`
         );
         setMovieData({
           title: res.data.title || "",
@@ -71,7 +71,7 @@ const UpdateMovie = () => {
     setUpdating(true);
     try {
       await axios.put(
-        `https://server-henna-psi.vercel.app/movies/update/${movieId}`,
+        `https://movie-blond-three.vercel.app/movies/update/${movieId}`,
         {
           ...movieData,
           userId: user.email,

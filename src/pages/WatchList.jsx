@@ -18,7 +18,7 @@ const Watchlist = () => {
     const fetchWatchlist = async () => {
       try {
         const res = await axios.get(
-          "https://server-henna-psi.vercel.app/movies"
+          "https://movie-blond-three.vercel.app/movies"
         );
         const watchlistMovies = res.data.filter(
           (m) => m.watchlist && m.watchlist.includes(user.email)
@@ -49,7 +49,7 @@ const Watchlist = () => {
     setDeleting(true);
     try {
       await axios.patch(
-        `https://server-henna-psi.vercel.app/movies/${selectedMovie._id}/watchlist`,
+        `https://movie-blond-three.vercel.app/movies/${selectedMovie._id}/watchlist`,
         {
           userEmail: user.email,
         }

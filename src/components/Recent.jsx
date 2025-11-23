@@ -11,7 +11,7 @@ const Recent = () => {
     const fetchRecentMovies = async () => {
       try {
         const res = await axios.get(
-          "https://server-henna-psi.vercel.app/movies"
+          "https://movie-blond-three.vercel.app/movies"
         );
         const sorted = res.data
           .sort(

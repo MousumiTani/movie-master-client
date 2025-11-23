@@ -15,9 +15,9 @@ const TopRated = () => {
     const fetchData = async () => {
       try {
         const [allMoviesRes, topRatedRes, usersRes] = await Promise.all([
-          axios.get("https://server-henna-psi.vercel.app/movies"),
-          axios.get("https://server-henna-psi.vercel.app/movies/top-rated"),
-          axios.get("https://server-henna-psi.vercel.app/users"),
+          axios.get("https://movie-blond-three.vercel.app/movies"),
+          axios.get("https://movie-blond-three.vercel.app/movies/top-rated"),
+          axios.get("https://movie-blond-three.vercel.app/users"),
         ]);
 
         setMovies(allMoviesRes.data);

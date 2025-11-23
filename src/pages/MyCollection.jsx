@@ -19,7 +19,7 @@ const MyCollection = () => {
     const fetchMovies = async () => {
       try {
         const res = await axios.get(
-          "https://server-henna-psi.vercel.app/movies"
+          "https://movie-blond-three.vercel.app/movies/"
         );
         const userMovies = res.data.filter((m) => m.addedBy === user.email);
         setMovies(userMovies);
@@ -49,7 +49,7 @@ const MyCollection = () => {
 
     try {
       await axios.delete(
-        `https://server-henna-psi.vercel.app/movies/delete/${selectedMovie._id}`,
+        `https://movie-blond-three.vercel.app/movies/delete/${selectedMovie._id}`,
         {
           data: { userId: user.email },
         }
